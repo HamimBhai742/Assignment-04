@@ -29,18 +29,19 @@ function checkName(name) {
 }
 
 
-
 function deleteInvalids(array) {
-    if (Array.isArray(array) === false) {
-        return 'Invalid Array'
-    }
-    newArray = [];
-    for (let Array of array) {
-        if (typeof Array === 'number' && (Array % 2 === 0 || Array % 2 === 1 || Array % 2 === -1)) {
-            newArray.push(Array);
+    if (Array.isArray(array) === true) {
+        newArray = [];
+        for (const Array of array) {
+            if (typeof Array === 'number' && (Array % 2 === 0 || Array % 2 === 1 || Array % 2 === -1)) {
+                newArray.push(Array);
+            }
         }
+        return newArray;
     }
-    return newArray;
+    else{
+        return 'Invalid Array'
+    } 
 }
 
 
@@ -48,7 +49,7 @@ function password(obj) {
     let obArray = [];
     let dob = obj.birthYear
     let Dob = dob.toString().split('').length;
-    for (let objects in obj) {
+    for (const objects in obj) { 
         obArray.push(objects)
     }
     if (obArray.length < 3) {
@@ -62,31 +63,35 @@ function password(obj) {
     }
 }
 
+
 function monthlySavings(arr, livingCoust) {
-    if (typeof arr !== 'object' || typeof livingCoust !== 'number') {
-        return 'invalid input'
-    }
-    let fixedSalary = [];
-    for (let salary of arr) {
-        if (salary >= 3000) {
-            let tex = salary * 0.20;
-            payTaxSalary = salary - tex;
-            fixedSalary.push(payTaxSalary)
+    if (typeof arr === 'object' || typeof livingCoust === 'number') {
+        let fixedSalary = [];
+        for (const salary of arr) {
+            if (salary >= 3000) {
+                let tex = salary * 0.20;
+                payTaxSalary = salary - tex;
+                fixedSalary.push(payTaxSalary)
+            }
+            else {
+                fixedSalary.push(salary)
+            }
+        }
+        let sum = 0;
+        for (const perSalary of fixedSalary) {
+            sum = sum + perSalary;
+            savings = sum - livingCoust;
+        }
+        if (savings >= 0) {
+            return savings
         }
         else {
-            fixedSalary.push(salary)
+            return 'earn more'
         }
     }
-    let sum = 0;
-    for (let perSalary of fixedSalary) {
-        sum = sum + perSalary;
-        savings = sum - livingCoust;
-    }
-    if (savings >= 0) {
-        return savings
-    }
-    else {
-        return 'earn more'
+    else{
+        return 'invalid input'
     }
 }
+
 
