@@ -9,7 +9,7 @@ function calculateMoney(ticketSale) {
         let perDayIncome = totalSale - perDayCost;
         return perDayIncome;
     }
-    else{
+    else {
         return 'Invalid Number';
     }
 }
@@ -31,6 +31,9 @@ function checkName(name) {
 
 
 function deleteInvalids(array) {
+    if (Array.isArray(array) === false) {
+        return 'Invalid Array'
+    }
     newArray = [];
     for (let Array of array) {
         if (typeof Array === 'number' && (Array % 2 === 0 || Array % 2 === 1 || Array % 2 === -1)) {
@@ -39,8 +42,7 @@ function deleteInvalids(array) {
     }
     return newArray;
 }
-// let Arrayy=[6,7,-99,NaN,null,undefined,'kkssd']
-// console.log(deleteInvalids(Arrayy));
+
 
 function password(obj) {
     let obArray = [];
@@ -49,13 +51,13 @@ function password(obj) {
     for (let objects in obj) {
         obArray.push(objects)
     }
-    if(obArray.length<3){
+    if (obArray.length < 3) {
         return 'invalid'
     }
     else if (Dob < 4) {
         return 'invalid'
     }
-    else{
+    else {
         return obj.siteName.charAt(0).toUpperCase() + obj.siteName.slice(1) + '#' + obj.name + '@' + obj.birthYear;
     }
 }
