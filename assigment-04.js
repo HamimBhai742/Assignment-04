@@ -9,25 +9,24 @@ function calculateMoney(ticketSale) {
         let perDayIncome = totalSale - perDayCost;
         return perDayIncome;
     }
-    return `Invalid Number`;
+    else{
+        return 'Invalid Number';
+    }
 }
-// console.log(calculateMoney(130));
+
 
 function checkName(name) {
     if (typeof name === 'number' || typeof name === 'object') {
-        return 'Invalid'
+        return 'invalid'
     }
     let Name = name.slice(-1).match(/a|y|i|e|o|u|w/gi);
     if (Name !== null) {
-        return 'Good Boy'
+        return 'Good Name'
     }
     else if (Name === null) {
-        return 'Bad Boy'
+        return 'Bad Name'
     }
-    console.log();
 }
-// const Nam = "Hamim"
-// console.log(checkName('RafEE'));
 
 
 
@@ -40,23 +39,32 @@ function deleteInvalids(array) {
     }
     return newArray;
 }
-// console.log(deleteInvalids([9,5,6,7,NaN,undefined,-93,'kss']));
+// let Arrayy=[6,7,-99,NaN,null,undefined,'kkssd']
+// console.log(deleteInvalids(Arrayy));
 
-function password(x) {
-    let passDetils = {
-        name:kolimuddin,
-        birthYear:2001,
-        siteName:'Facebook'
+function password(obj) {
+    let obArray = [];
+    let dob = obj.birthYear
+    let Dob = dob.toString().split('').length;
+    for (let objects in obj) {
+        obArray.push(objects)
     }
-    return name.concatenate(birthYear)
+    if(obArray.length<3){
+        return 'invalid'
+    }
+    else if (Dob < 4) {
+        return 'invalid'
+    }
+    else{
+        return obj.siteName.charAt(0).toUpperCase() + obj.siteName.slice(1) + '#' + obj.name + '@' + obj.birthYear;
+    }
 }
-console.log(password(x));
 
 function monthlySavings(arr, livingCoust) {
-    if (typeof arr !== 'object' || typeof livingCoust !== 'number'){
-        return 'Invalid Input'
+    if (typeof arr !== 'object' || typeof livingCoust !== 'number') {
+        return 'invalid input'
     }
-        let fixedSalary = [];
+    let fixedSalary = [];
     for (let salary of arr) {
         if (salary >= 3000) {
             let tex = salary * 0.20;
@@ -79,5 +87,4 @@ function monthlySavings(arr, livingCoust) {
         return 'earn more'
     }
 }
-// let savings =monthlySavings()
-console.log(monthlySavings(900,[ 3000,98,86]));
+
