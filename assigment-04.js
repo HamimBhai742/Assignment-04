@@ -19,12 +19,14 @@ function checkName(name) {
     if (typeof name === 'number' || typeof name === 'object') {
         return 'invalid'
     }
-    let Name = name.slice(-1).match(/a|y|i|e|o|u|w/gi);
-    if (Name !== null) {
-        return 'Good Name'
-    }
-    else if (Name === null) {
-        return 'Bad Name'
+    else {
+        let Name = name.slice(-1).match(/a|y|i|e|o|u|w/gi);
+        if (Name !== null) {
+            return 'Good Name'
+        }
+        else if (Name === null) {
+            return 'Bad Name'
+        }
     }
 }
 
@@ -39,9 +41,9 @@ function deleteInvalids(array) {
         }
         return newArray;
     }
-    else{
+    else {
         return 'Invalid Array'
-    } 
+    }
 }
 
 
@@ -49,7 +51,7 @@ function password(obj) {
     let obArray = [];
     let dob = obj.birthYear
     let Dob = dob.toString().split('').length;
-    for (const objects in obj) { 
+    for (const objects in obj) {
         obArray.push(objects)
     }
     if (obArray.length < 3) {
@@ -89,9 +91,8 @@ function monthlySavings(arr, livingCoust) {
             return 'earn more'
         }
     }
-    else{
+    else {
         return 'invalid input'
     }
 }
-
 
